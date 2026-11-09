@@ -17,5 +17,27 @@
       flavor = "tap-preferred";
       bindings = <&mo>, <&kp>;
     };
+#if defined (MIRYOKU_HOMEROWMODS_LEFT_POSITIONS) && defined (MIRYOKU_HOMEROWMODS_RIGHT_POSITIONS)
+    u_hm_l: u_hm_l {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <U_TAPPING_TERM>;
+      require-prior-idle-ms = <U_REQUIRE_PRIOR_IDLE_MS>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <MIRYOKU_HOMEROWMODS_RIGHT_POSITIONS>;
+      hold-trigger-on-release;
+      bindings = <&kp>, <&kp>;
+    };
+    u_hm_r: u_hm_r {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <U_TAPPING_TERM>;
+      require-prior-idle-ms = <U_REQUIRE_PRIOR_IDLE_MS>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <MIRYOKU_HOMEROWMODS_LEFT_POSITIONS>;
+      hold-trigger-on-release;
+      bindings = <&kp>, <&kp>;
+    };
+#endif
   };
 };
